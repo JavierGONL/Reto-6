@@ -4,7 +4,7 @@
 
 ## Descripción
 
-Este reto implementa manejo robusto de excepciones en los ejercicios del Reto 1 y mejora el paquete Shape del Reto 5. Se enfoca en validar entradas de usuario, manejar errores matemáticos y crear código más confiable.
+Este reto implementa manejo robusto de excepciones en los ejercicios del Reto 1 y mejora el paquete Shape del Reto 5. Se enfoca en validar entradas de usuario y manejar errores matemáticos
 
 ## Archivos Incluidos
 
