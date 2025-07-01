@@ -1,11 +1,8 @@
 """
-Ejemplo de uso del paquete shape_package_mejorado con manejo de excepciones
-Estudiante de POO - Reto 6
-
-Demuestra como las excepciones ayudan a validar datos y manejar errores.
+!le pedi a copilot que hiciera las pruebas
 """
 
-from shape_package_mejorado import Point, Line, Rectangle, Triangle, ShapeError
+from paquete_shape import Point, Line, Rectangle, Triangle, ShapeError
 
 def ejemplo_punto():
     print("=== EJEMPLO: PUNTO CON MANEJO DE EXCEPCIONES ===")
@@ -19,19 +16,7 @@ def ejemplo_punto():
     except ShapeError as error:
         print(f"Error con puntos: {error}")
     
-    # Casos invalidos
-    casos_invalidos = [
-        ("abc", 4),      # Coordenada no numerica
-        (3, float('inf')), # Coordenada infinita
-        (2, float('nan')), # Coordenada NaN
-    ]
-    
-    for x, y in casos_invalidos:
-        try:
-            p = Point(x, y)
-            print(f"Punto creado: {p}")
-        except ShapeError as error:
-            print(f"Error esperado con ({x}, {y}): {error}")
+
 
 def ejemplo_linea():
     print("\n=== EJEMPLO: LINEA CON MANEJO DE EXCEPCIONES ===")
@@ -46,12 +31,6 @@ def ejemplo_linea():
     except ShapeError as error:
         print(f"Error con linea: {error}")
     
-    # Caso invalido: mismos puntos
-    try:
-        p_same = Point(1, 1)
-        linea_invalida = Line(p_same, p_same)
-    except ShapeError as error:
-        print(f"Error esperado con puntos iguales: {error}")
 
 def ejemplo_rectangulo():
     print("\n=== EJEMPLO: RECTANGULO CON MANEJO DE EXCEPCIONES ===")
@@ -66,20 +45,7 @@ def ejemplo_rectangulo():
     except ShapeError as error:
         print(f"Error con rectangulo: {error}")
     
-    # Casos invalidos
-    casos_invalidos = [
-        (-5, 3),    # Ancho negativo
-        (5, 0),     # Alto cero
-        ("abc", 3), # Ancho no numerico
-    ]
     
-    for width, height in casos_invalidos:
-        try:
-            rect = Rectangle(width=width, height=height)
-            print(f"Rectangulo creado: {rect}")
-        except ShapeError as error:
-            print(f"Error esperado con width={width}, height={height}: {error}")
-
 def ejemplo_triangulo():
     print("\n=== EJEMPLO: TRIANGULO CON MANEJO DE EXCEPCIONES ===")
     
@@ -103,23 +69,6 @@ def ejemplo_triangulo():
     except ShapeError as error:
         print(f"Error con triangulo: {error}")
     
-    # Triangulo invalido (no cumple desigualdad triangular)
-    try:
-        p1 = Point(0, 0)
-        p2 = Point(1, 0)
-        p3 = Point(10, 0)  # Puntos colineales
-        
-        edge1 = Line(p1, p2)
-        edge2 = Line(p2, p3)
-        edge3 = Line(p3, p1)
-        
-        triangulo_invalido = Triangle([edge1, edge2, edge3])
-        area = triangulo_invalido.compute_area()
-        print(f"Area: {area}")
-        
-    except ShapeError as error:
-        print(f"Error esperado con triangulo degenerado: {error}")
-
 def ejemplo_interseccion_rectangulos():
     print("\n=== EJEMPLO: INTERSECCION DE RECTANGULOS ===")
     
